@@ -1,0 +1,18 @@
+$main-blue: #3730F5;
+$main-blue-light: #7D79FF;
+$lime-green: #8FB339;
+
+#root {
+  text-align: center;
+}
+
+.btn-1 {
+  background-color: $main-blue;
+  color: white;
+  text-transform:capitalize
+}
+
+.btn-1:hover {
+  background-color: $main-blue-light;
+  color: white;
+}
