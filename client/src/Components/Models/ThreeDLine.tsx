@@ -1,6 +1,11 @@
 import Plot from 'react-plotly.js';
+import { useState } from 'react';
+import Button from '@mui/material/Button';
 
 const ThreeDLine = () => {
+
+    const [int, setInt] = useState(1)
+
     var pointCount = 31;
     var i, r;
 
@@ -11,14 +16,16 @@ const ThreeDLine = () => {
 
     for(i = 0; i < pointCount; i++) 
     {
-    r = 10 * Math.cos(i / 10);
+    r = int + 10 * Math.cos(i / 10);
     x.push(r * Math.cos(i));
-    y.push(r * Math.sin(i));
+    y.push(r * Math.sin(i) + int);
     z.push(i);
     c.push(i)
     }
 
     return (
+      <>
+        <Button onClick={() => setInt(int+1)}>Click me</Button>
         <Plot
             data={[
             {
@@ -41,6 +48,7 @@ const ThreeDLine = () => {
             ]}
             layout={ {width: 600, height: 600, title: 'A Fancy Plot'} }
         />
+      </>
     );
 };
 
