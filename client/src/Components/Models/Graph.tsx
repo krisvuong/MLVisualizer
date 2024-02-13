@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { StyledEngineProvider } from '@mui/material';
-import BarChart from '../BarChart.tsx'
-import ThreeDLine from './Models/ThreeDLine.tsx'
-import DiscreteSlider from './Models/Slider.tsx';
-import Main from './Main.tsx';
+import BarChart from './BarChart.tsx'
+import ThreeDLine from './ThreeDLine.tsx'
+import DiscreteSlider from './Slider.tsx';
+import Home from '../Home.tsx';
+import BananaFunc from './BananaFunc.tsx';
 
 const Graph = () => {
 
@@ -27,6 +28,8 @@ const Graph = () => {
  
   return (
     <>
+      <Button variant-="contained" className="btn-1" href='/main'>Go to home</Button>
+      <BananaFunc />
       <ThreeDLine />
       <DiscreteSlider />
     </>

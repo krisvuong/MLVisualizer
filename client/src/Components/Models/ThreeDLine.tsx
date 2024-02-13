@@ -16,11 +16,11 @@ const ThreeDLine = () => {
 
     for(i = 0; i < pointCount; i++) 
     {
-    r = int + 10 * Math.cos(i / 10);
-    x.push(r * Math.cos(i));
-    y.push(r * Math.sin(i) + int);
-    z.push(i);
-    c.push(i)
+      r = int + 10 * Math.cos(i / 10);
+      x.push(r * Math.cos(i));
+      y.push(r * Math.sin(i) + int);
+      z.push(i);
+      c.push(i)
     }
 
     return (
