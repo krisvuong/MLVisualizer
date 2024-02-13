@@ -15,12 +15,16 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/material": "^5.15.10",
+    "@types/hookrouter": "^2.2.8",
     "@types/react-plotly.js": "^2.6.3",
+    "@types/react-router-dom": "^5.3.3",
     "d3": "^7.8.5",
+    "hookrouter": "^1.2.5",
     "plotly.js": "^2.29.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-plotly.js": "^2.6.0"
+    "react-plotly.js": "^2.6.0",
+    "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
     "@types/d3": "^7.4.3",
