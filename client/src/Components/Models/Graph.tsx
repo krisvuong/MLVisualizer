@@ -26,41 +26,28 @@ const Graph = () => {
   //     }
   //     )
   // }, [])
-
   
-  // stuff for fetching from flask server
   const [wHist, setWHist] = useState([])
-
-  let data = new FormData()
-  data.append("value", "666")
-
-  let options = {
-    method: 'POST',
-    headers: {
-      'Content-Type':
-          'application/json;charset=utf-8'
-    },
-    body: JSON.stringify({"name":"Kris VUONG"})
-
-  }
-
-  let fetchPath = fetch(
-    "http://127.0.0.1:5000/getpath", options
-  );
-
-
-  // fetch data on first render
-  useEffect(() => {
-    fetchPath
-      .then(d => console.log("RESULT:", d))
-  }, [])
-
-
-
   const [param, setParam] = useState(1)
   const [startW, setStartW] = useState([1,1])
   const [alpha, setAlpha] = useState(1)
-  const [maxIts, setMaxIts] = useState(20)
+  const [maxIts, setMaxIts] = useState(1)
+
+  let options = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json;charset=utf-8'},
+    body: JSON.stringify({"alpha":{alpha}, "maxIts":{maxIts}})
+  }
+
+  let fetchPath = fetch("http://127.0.0.1:5000/getpath", options);
+
+  // fetch data on first render + when graph parameters change
+  useEffect(() => {
+    fetchPath
+      .then(d => d.json())
+      .then(d => console.log(d))
+  }, [alpha, maxIts])
+
 
   return (
     <>
