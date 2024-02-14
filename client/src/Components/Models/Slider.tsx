@@ -5,7 +5,7 @@ function valuetext(value: number) {
   return `${value}°C`;
 }
 
-const DiscreteSlider = () => {
+const DiscreteSlider = (params:any) => {
   return (
     <Box sx={{ width: 300 }}>
       <Slider
@@ -18,6 +18,7 @@ const DiscreteSlider = () => {
         marks
         min={10}
         max={110}
+        onChange={(e, v) => params.setParam(v)}
       />
     </Box>
   );

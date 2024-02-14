@@ -26,13 +26,19 @@ const Graph = () => {
   //     }
   //     )
   // }, [])
+
+  const [param, setParam] = useState(1)
+
+  const handleParamChange = (newVal: any) => {setParam(newVal)}
  
   return (
     <>
       {/* <Button variant-="contained" className="btn-1" href='/main'>Go to home</Button> */}
       {/* <BananaFunc /> */}
-      <ThreeDLine xs={someLineData.x} ys={someLineData.y} zs={someLineData.z}/>
-      <DiscreteSlider />
+      <p>Param: {param}</p>
+      <Button onClick={() => setParam(param+1)}>increment</Button>
+      <DiscreteSlider setParam={(p) => setParam(p)} />
+      <ThreeDLine xs={someLineData.x} ys={someLineData.y} zs={someLineData.z} p={param}/>
     </>
   )
 }

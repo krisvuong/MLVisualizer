@@ -9,9 +9,7 @@ interface lineParams {
   "z": String[];
 };
 
-const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>}) => {
-
-  console.log(props.xs, props.ys, props.zs)
+const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>, p: Number}) => {
 
   // var i, r;
 
@@ -29,13 +27,15 @@ const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<Strin
   //   c.push(i)
   // }
 
+  console.log("from 3dline:", (Number(props.p).toString()));
+
   var trace1 = 
     {
       type: 'scatter3d',
       mode: 'lines+markers',
       x: props.xs,
-      y: props.ys,
-      z: props.zs,
+      y: props.ys.map(y => (Number(y) - 0.2*Number(props.p)).toString()),
+      z: props.zs.map(z => (Number(z) * Number(props.p)).toString()),
       line: {
         width: 6,
         color: props.xs,
