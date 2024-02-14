@@ -55,8 +55,8 @@ const Graph = () => {
       <p>α = {alpha}</p>
       <p>max_its = {maxIts}</p>
       <Button onClick={() => setParam(param+1)}>increment</Button>
-      <SliderWithLabel handleDisplay={(a:Number) => setAlpha(a)} name={"Alpha"}/>
-      <SliderWithLabel handleDisplay={(i:Number) => setMaxIts(i)} name={"Max iterations"}/>
+      <SliderWithLabel handleDisplay={(a:Number) => setAlpha(a)} name={"Alpha"} step={0.01} min={0.01} max={3}/>
+      <SliderWithLabel handleDisplay={(i:Number) => setMaxIts(i)} name={"Max iterations"} step={1} min={1} max={20}/>
       <ThreeDLine xs={someLineData.x} ys={someLineData.y} zs={someLineData.z} p={param}/>
     </>
   )

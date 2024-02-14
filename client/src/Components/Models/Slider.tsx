@@ -11,24 +11,24 @@ function valuetext(value: number) {
   return `${value}°C`;
 }
 
-const DiscreteSlider = (params:any) => {
-  return (
-    <Box sx={{ width: 300 }}>
-      <Slider
-        aria-label="Temperature"
-        defaultValue={1}
-        getAriaValueText={valuetext}
-        valueLabelDisplay="auto"
-        shiftStep={1}
-        step={1}
-        marks
-        min={1}
-        max={10}
-        onChange={(e, v) => params.setParam(v)}
-      />
-    </Box>
-  );
-}
+// const DiscreteSlider = (params:any) => {
+//   return (
+//     <Box sx={{ width: 300 }}>
+//       <Slider
+//         aria-label="Temperature"
+//         defaultValue={1}
+//         getAriaValueText={valuetext}
+//         valueLabelDisplay="auto"
+//         shiftStep={1}
+//         step={1}
+//         marks
+//         min={1}
+//         max={10}
+//         onChange={(e, v) => params.setParam(v)}
+//       />
+//     </Box>
+//   );
+// }
 
 const Input = styled(MuiInput)`
   width: 42px;
@@ -49,8 +49,8 @@ const SliderWithLabel = (params: any) => {
   const handleBlur = () => {
     if (value < 0) {
       setValue(0);
-    } else if (value > 100) {
-      setValue(100);
+    } else if (value > params.max) {
+      setValue(params.max);
     }
   };
 
@@ -68,6 +68,9 @@ const SliderWithLabel = (params: any) => {
             value={typeof value === 'number' ? value : 0}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
+            step={params.step}
+            min={params.min}
+            max={params.max}
           />
         </Grid>
         <Grid item>
@@ -77,9 +80,9 @@ const SliderWithLabel = (params: any) => {
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
-              step: 10,
-              min: 0,
-              max: 100,
+              step: params.step,
+              min: params.min,
+              max: params.max,
               type: 'number',
               'aria-labelledby': 'input-slider',
             }}
