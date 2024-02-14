@@ -1,5 +1,11 @@
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import MuiInput from '@mui/material/Input';
+import VolumeUp from '@mui/icons-material/VolumeUp';
 
 function valuetext(value: number) {
   return `${value}°C`;
@@ -10,18 +16,80 @@ const DiscreteSlider = (params:any) => {
     <Box sx={{ width: 300 }}>
       <Slider
         aria-label="Temperature"
-        defaultValue={30}
+        defaultValue={1}
         getAriaValueText={valuetext}
         valueLabelDisplay="auto"
-        shiftStep={30}
-        step={10}
+        shiftStep={1}
+        step={1}
         marks
-        min={10}
-        max={110}
+        min={1}
+        max={10}
         onChange={(e, v) => params.setParam(v)}
       />
     </Box>
   );
 }
 
-export default DiscreteSlider;
+const Input = styled(MuiInput)`
+  width: 42px;
+`;
+
+const SliderWithLabel = (params: any) => {
+  const [value, setValue] = React.useState(1);
+
+  const handleSliderChange = (event: Event, newValue: number | number[]) => {
+    setValue(newValue as number);
+    params.handleDisplay(newValue as number)
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value === '' ? 0 : Number(event.target.value));
+  };
+
+  const handleBlur = () => {
+    if (value < 0) {
+      setValue(0);
+    } else if (value > 100) {
+      setValue(100);
+    }
+  };
+
+  return (
+    <Box sx={{ width: 250 }}>
+      <Typography id="input-slider" gutterBottom>
+        {params.name}:
+      </Typography>
+      <Grid container spacing={2} alignItems="center">
+        <Grid item>
+          <p>α</p>
+        </Grid>
+        <Grid item xs>
+          <Slider
+            value={typeof value === 'number' ? value : 0}
+            onChange={handleSliderChange}
+            aria-labelledby="input-slider"
+          />
+        </Grid>
+        <Grid item>
+          <Input
+            value={value}
+            size="small"
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            inputProps={{
+              step: 10,
+              min: 0,
+              max: 100,
+              type: 'number',
+              'aria-labelledby': 'input-slider',
+            }}
+          />
+        </Grid>
+      </Grid>
+    </Box>
+  );
+};
+
+
+// export default DiscreteSlider;
+export default SliderWithLabel;
