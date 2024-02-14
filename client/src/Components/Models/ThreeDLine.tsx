@@ -1,6 +1,7 @@
 import Plot from 'react-plotly.js';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
+import { someData } from '../../Functions/FunctionData';
 
 const ThreeDLine = () => {
 
@@ -14,15 +15,14 @@ const ThreeDLine = () => {
   var z = [];
   var c = [];
 
-  for(i = 0; i < pointCount; i++) 
+  for(i = 0; i < 15; i++) 
   {
     r = int + 10 * Math.cos(i / 10);
-    x.push(r * Math.cos(i));
-    y.push(r * Math.sin(i) + int);
-    z.push(i);
+    x.push(i);
+    y.push(15-i);
+    z.push((Math.cos(r)+2)*50);
     c.push(i)
   }
-
 
   var trace1 = 
     {
@@ -36,26 +36,7 @@ const ThreeDLine = () => {
         color: c,
         colorscale: "Viridis"},
       marker: {
-        size: 3.5,
-        color: c,
-        colorscale: "Greens",
-        cmin: -20,
-        cmax: 50
-      }}
-
-  var trace2 = 
-    {
-      type: 'scatter3d',
-      mode: 'lines+markers',
-      x: x.map(xval => xval*1.63 + 5),
-      y: y.map(yval => yval*1.4 - 1),
-      z: x.map(zval => (zval)),
-      line: {
-        width: 6,
-        color: c,
-        colorscale: "Viridis"},
-      marker: {
-        size: 3.5,
+        size: 2,
         color: c,
         colorscale: "Greens",
         cmin: -20,
@@ -64,9 +45,8 @@ const ThreeDLine = () => {
 
   return (
     <>
-      <Button onClick={() => setInt(int+1)}>Click me</Button>
       <Plot
-          data={[trace1, trace2]}
+          data={[someData, trace1]}
           layout={ {width: 600, height: 600, title: 'A Fancy Plot'} }
       />
     </>

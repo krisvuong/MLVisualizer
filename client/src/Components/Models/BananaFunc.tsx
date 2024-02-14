@@ -50,10 +50,12 @@ const BananaFunc = () => {
 
     var trace2 = someData
 
+
+
   return (
     <>
       <Plot
-          data={someData}
+          data={[someData]}
           layout={ {width: 600, height: 600, title: 'A Fancy Plot'} }
       />
     </>
