@@ -34,20 +34,28 @@ const Graph = () => {
   let data = new FormData()
   data.append("value", "666")
 
+  let options = {
+    method: 'POST',
+    headers: {
+      'Content-Type':
+          'application/json;charset=utf-8'
+    },
+    body: JSON.stringify({"name":"Kris VUONG"})
+
+  }
+
+  let fetchPath = fetch(
+    "http://127.0.0.1:5000/getpath", options
+  );
+
+
   // fetch data on first render
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/get-path",
-        {
-          "method": "POST",
-          "body": data
-        })
-      .then(res => res.json())
-      .then(data => {
-        setWHist(data)
-        console.log(data)
-      }
-      )
+    fetchPath
+      .then(d => console.log("RESULT:", d))
   }, [])
+
+
 
   const [param, setParam] = useState(1)
   const [startW, setStartW] = useState([1,1])
