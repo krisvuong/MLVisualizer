@@ -7,6 +7,7 @@ import ThreeDLine from './ThreeDLine.tsx'
 import DiscreteSlider from './Slider.tsx';
 // import Home from '../Home.tsx';
 import BananaFunc from './BananaFunc.tsx';
+import { someLineData } from '../../Functions/FunctionData.tsx';
 
 const Graph = () => {
 
@@ -29,8 +30,8 @@ const Graph = () => {
   return (
     <>
       {/* <Button variant-="contained" className="btn-1" href='/main'>Go to home</Button> */}
-      <BananaFunc />
-      <ThreeDLine />
+      {/* <BananaFunc /> */}
+      <ThreeDLine xs={someLineData.x} ys={someLineData.y} zs={someLineData.z}/>
       <DiscreteSlider />
     </>
   )

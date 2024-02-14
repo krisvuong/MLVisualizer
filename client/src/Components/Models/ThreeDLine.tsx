@@ -1,43 +1,48 @@
 import Plot from 'react-plotly.js';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
-import { someData } from '../../Functions/FunctionData';
+import { someData, someLineData } from '../../Functions/FunctionData';
 
-const ThreeDLine = () => {
+interface lineParams {
+  "x": String[];
+  "y": String[];
+  "z": String[];
+};
 
-  const [int, setInt] = useState(1)
+const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>}) => {
 
-  var pointCount = 31;
-  var i, r;
+  console.log(props.xs, props.ys, props.zs)
 
-  var x = [];
-  var y = [];
-  var z = [];
-  var c = [];
+  // var i, r;
 
-  for(i = 0; i < 15; i++) 
-  {
-    r = int + 10 * Math.cos(i / 10);
-    x.push(i);
-    y.push(15-i);
-    z.push((Math.cos(r)+2)*50);
-    c.push(i)
-  }
+  // var x = [];
+  // var y = [];
+  // var z = [];
+  // var c = [];
+
+  // for(i = 0; i < 15; i++) 
+  // {
+  //   r = 10 * Math.cos(i / 10);
+  //   x.push(i);
+  //   y.push(15-i);
+  //   z.push((Math.cos(r)+2)*50);
+  //   c.push(i)
+  // }
 
   var trace1 = 
     {
       type: 'scatter3d',
       mode: 'lines+markers',
-      x: x,
-      y: y,
-      z: z,
+      x: props.xs,
+      y: props.ys,
+      z: props.zs,
       line: {
         width: 6,
-        color: c,
+        color: props.xs,
         colorscale: "Viridis"},
       marker: {
         size: 2,
-        color: c,
+        color: props.xs,
         colorscale: "Greens",
         cmin: -20,
         cmax: 50
