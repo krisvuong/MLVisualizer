@@ -2,6 +2,7 @@ from flask import Flask, Response, request, jsonify
 from flask_cors import CORS
 import json
 from src.handlers.dot_product_handler import dot_product_handler
+from src.handlers.func_handler import func_handler
 
 app = Flask(__name__)
 CORS(app)  # not great to enable cors on all routes; fix this soon
@@ -19,7 +20,8 @@ def get_path():
     # print("alpha:", data['alpha'])
     # print("maxIts:", data['maxIts'])
     # print("w_history is:", dot_product_handler(data['alpha'], data['maxIts']))
-    return dot_product_handler(data['alpha'], data['maxIts'])
+    return func_handler(data['function'], data['alpha'], data['maxIts'])
+    # return dot_product_handler(data['alpha'], data['maxIts'])
     # return {'name':['kris', 'vuong']}
     # return dot_product_handler(data['alpha'], data['maxIts'])
     # print(data['alpha'])

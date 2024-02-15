@@ -37,7 +37,7 @@ const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<Strin
     <>
       <Plot
           data={[dotProductData, trace1]}
-          layout={ {width: 600, height: 600, title: 'A Fancy Plot'} }
+          layout={ {width: 600, height: 600, title: 'Dot Product Function'} }
       />
     </>
   );

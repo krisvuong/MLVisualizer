@@ -5,30 +5,10 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import MuiInput from '@mui/material/Input';
-import VolumeUp from '@mui/icons-material/VolumeUp';
 
 function valuetext(value: number) {
   return `${value}°C`;
 }
-
-// const DiscreteSlider = (params:any) => {
-//   return (
-//     <Box sx={{ width: 300 }}>
-//       <Slider
-//         aria-label="Temperature"
-//         defaultValue={1}
-//         getAriaValueText={valuetext}
-//         valueLabelDisplay="auto"
-//         shiftStep={1}
-//         step={1}
-//         marks
-//         min={1}
-//         max={10}
-//         onChange={(e, v) => params.setParam(v)}
-//       />
-//     </Box>
-//   );
-// }
 
 const Input = styled(MuiInput)`
   width: 42px;

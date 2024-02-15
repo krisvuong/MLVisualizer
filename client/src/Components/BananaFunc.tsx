@@ -2,7 +2,7 @@ import Plot from 'react-plotly.js';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import d3 from 'd3';
-import { rosenbrockData, someData } from '../../Functions/FunctionData';
+import { rosenbrockData, someData } from '../Functions/FunctionData';
 
 
 const BananaFunc = () => {
