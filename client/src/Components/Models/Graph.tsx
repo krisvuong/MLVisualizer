@@ -33,6 +33,7 @@ const Graph = () => {
   const [alpha, setAlpha] = useState(1)
   const [maxIts, setMaxIts] = useState(1)
 
+
   let options = {
     method: 'POST',
     headers: {'Content-Type': 'application/json;charset=utf-8'},
@@ -45,9 +46,10 @@ const Graph = () => {
   useEffect(() => {
     fetchPath
       .then(d => d.json())
-      .then(d => console.log(d))
       .catch(e => {console.log("caught error:", e)})
+      .then(d => {setWHist(d['w_history'])})
   }, [alpha, maxIts])
+
 
   return (
     <>
@@ -57,7 +59,7 @@ const Graph = () => {
       <Button onClick={() => setParam(param+1)}>increment</Button>
       <SliderWithLabel handleDisplay={(a:Number) => setAlpha(a)} name={"Alpha"} step={0.01} min={0.01} max={3}/>
       <SliderWithLabel handleDisplay={(i:Number) => setMaxIts(i)} name={"Max iterations"} step={1} min={1} max={20}/>
-      <ThreeDLine xs={someLineData.x} ys={someLineData.y} zs={someLineData.z} p={param}/>
+      <ThreeDLine xs={someLineData.x} ys={someLineData.y} zs={someLineData.z} p={param} whist={wHist}/>
     </>
   )
 }

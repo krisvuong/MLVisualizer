@@ -10,8 +10,5 @@ def dot_product_handler(alpha, max_its):
 
     w_h = [wi.tolist() for wi in w_h]
     c_h = [ci.tolist() for ci in c_h]
-
-    print(type(w_h))
-    print(type(w_h[0]))
-
+    
     return {"w_history": w_h, "c_history": c_h}

@@ -9,7 +9,9 @@ interface lineParams {
   "z": String[];
 };
 
-const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>, p: Number}) => {
+const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>, p: Number, whist: Array<any>}) => {
+
+  console.log(props.whist)
 
   var trace1 = 
     {
