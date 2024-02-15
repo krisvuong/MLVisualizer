@@ -6,10 +6,12 @@ def dot_product_handler(alpha, max_its):
 
     w0 = np.array([1., 1.])
 
-    w_h, c_h = gradient_descent(dot_product, 1., max_its, w0)
+    w_h, c_h = gradient_descent(dot_product, alpha, max_its, w0)
 
-    # print("ALPHAAA:", alpha)
-    # print("MAX_ITS:", max_its)
+    w_h = [wi.tolist() for wi in w_h]
+    c_h = [ci.tolist() for ci in c_h]
 
-    # return [[1,3], [2,2]]
-    return w_h
+    print(type(w_h))
+    print(type(w_h[0]))
+
+    return {"w_history": w_h, "c_history": c_h}

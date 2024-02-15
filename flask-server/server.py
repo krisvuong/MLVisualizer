@@ -15,8 +15,13 @@ CORS(app)  # not great to enable cors on all routes; fix this soon
 @app.route('/getpath', methods=['POST', 'GET'])
 def get_path():
     data = request.get_json()
-    print("got result {}".format(data))
+    # print("got result {}".format(data))
+    # print("alpha:", data['alpha'])
+    # print("maxIts:", data['maxIts'])
+    # print("w_history is:", dot_product_handler(data['alpha'], data['maxIts']))
     return dot_product_handler(data['alpha'], data['maxIts'])
+    # return {'name':['kris', 'vuong']}
+    # return dot_product_handler(data['alpha'], data['maxIts'])
     # print(data['alpha'])
     # dot_product_handler(1, 2)
     # print("Received: {}".format(request.data))

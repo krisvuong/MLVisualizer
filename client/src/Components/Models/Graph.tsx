@@ -46,6 +46,7 @@ const Graph = () => {
     fetchPath
       .then(d => d.json())
       .then(d => console.log(d))
+      .catch(e => {console.log("caught error:", e)})
   }, [alpha, maxIts])
 
   return (
