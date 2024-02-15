@@ -9,17 +9,18 @@ interface lineParams {
   "z": String[];
 };
 
-const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>, p: Number, whist: Array<any>}) => {
 
-  console.log(props.whist)
+const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>, p: Number, whist: Array<any>}) => {
+  // console.log(props.whist[0])
+  // console.log(typeof(props.whist[0]))
 
   var trace1 = 
     {
       type: 'scatter3d',
       mode: 'lines+markers',
-      x: props.xs,
-      y: props.ys,
-      z: props.zs.map(z => (Number(z) * Number(props.p)).toString()),
+      x: props.whist.map(d => d[0]),
+      y: props.whist.map(d => d[1]),
+      z: props.whist.map(d => 0),
       line: {
         width: 6,
         color: props.xs,

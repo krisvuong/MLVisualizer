@@ -4,7 +4,7 @@ import numpy as np
 
 def dot_product_handler(alpha, max_its):
 
-    w0 = np.array([1., 1.])
+    w0 = np.array([10., 10.])
 
     w_h, c_h = gradient_descent(dot_product, alpha, max_its, w0)
 
