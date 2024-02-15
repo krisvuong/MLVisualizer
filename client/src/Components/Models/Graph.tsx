@@ -36,7 +36,7 @@ const Graph = () => {
   let options = {
     method: 'POST',
     headers: {'Content-Type': 'application/json;charset=utf-8'},
-    body: JSON.stringify({"alpha":{alpha}, "maxIts":{maxIts}})
+    body: JSON.stringify({alpha, maxIts})
   }
 
   let fetchPath = fetch("http://127.0.0.1:5000/getpath", options);
@@ -47,7 +47,6 @@ const Graph = () => {
       .then(d => d.json())
       .then(d => console.log(d))
   }, [alpha, maxIts])
-
 
   return (
     <>
