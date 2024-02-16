@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import ThreeDLine from './GraphWithDescent.tsx'
+import GraphWithDescent from './GraphWithDescent.tsx'
 import SliderWithLabel from '../Slider.tsx';
 import { someLineData } from '../../Functions/FunctionData.tsx';
 
@@ -52,7 +52,7 @@ const DotProduct = () => {
       <p>max_its = {maxIts}</p>
       <SliderWithLabel handleDisplay={(a:Number) => setAlpha(a)} name={"Alpha"} step={0.01} min={0.01} max={1}/>
       <SliderWithLabel handleDisplay={(i:Number) => setMaxIts(i)} name={"Max iterations"} step={1} min={1} max={20}/>
-      <ThreeDLine xs={someLineData.x} ys={someLineData.y} zs={someLineData.z} p={param} whist={wHist}/>
+      <GraphWithDescent xs={someLineData.x} ys={someLineData.y} zs={someLineData.z} p={param} whist={wHist}/>
     </>
   )
 }

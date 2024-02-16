@@ -10,7 +10,7 @@ interface lineParams {
 };
 
 
-const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>, p: Number, whist: Array<any>}) => {
+const GraphWithDescent = (props={xs: Array<String>, ys: Array<String>, zs: Array<String>, p: Number, whist: Array<any>}) => {
   // console.log(props.whist[0])
   // console.log(typeof(props.whist[0]))
 
@@ -43,4 +43,4 @@ const ThreeDLine = (props={xs: Array<String>, ys: Array<String>, zs: Array<Strin
   );
 };
 
-export default ThreeDLine;
+export default GraphWithDescent;

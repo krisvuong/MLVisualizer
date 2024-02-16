@@ -1,16 +1,19 @@
-import { StyledEngineProvider } from '@mui/material';
+import { StyledEngineProvider, Button } from '@mui/material';
 import './App.scss'
 import DotProduct from './Components/Models/DotProduct.tsx';
+import Link from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App = () => {
   return ( 
     <StyledEngineProvider injectFirst>
-      <DotProduct />
-    {/* <Routes>
-      <Route path='/main' element={<Home />} />
-      <Route path='/graph' element={<Graph />} />
-    </Routes>
-    <Button variant-="contained" className="btn-1" href='graph'>Go to graph</Button> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/dot-product" element={<DotProduct />} />
+        </Routes>
+      </BrowserRouter>
+      <Button variant="outlined" href="/dot-product">To dot product</Button>
+      {/* <DotProduct /> */}
     </StyledEngineProvider>
   )
 }
